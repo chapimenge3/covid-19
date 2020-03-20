@@ -1,0 +1,17 @@
+{
+  "name": "covid-19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.9.5",
+    "node-telegram-bot-api": "^0.40.0",
+    "nodemon": "^2.0.2"
+  }
+}
