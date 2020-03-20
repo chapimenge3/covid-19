@@ -1,7 +1,9 @@
 
+
 const TOKEN = process.env.TELEGRAM_TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
-const TelegramBot = require('..');
+const TelegramBot = require('node-telegram-bot-api');
 const request = require('request');
+const axios = require('axios')
 const options = {
   polling: true
 };
@@ -9,21 +11,33 @@ const bot = new TelegramBot("913957091:AAEa5aAq4WYxuzYyEQ1gyh2CKDAuczZX4BU", opt
 
 
 // Matches /photo
-bot.onText(/\/photo/, function onPhotoText(msg) {
-  // From file path
-  const photo = `${__dirname}/../test/data/photo.gif`;
-  bot.sendPhoto(msg.chat.id, photo, {
-    caption: "I'm a bot!"
-  });
+bot.onText(/world/ig, async function onPhotoText(msg) {
+  
+  try{
+    var worldCovidData = await axios.get('https://covid19.mathdro.id/api');
+    console.log(worldCovidData.data.confirmed.value)
+    bot.sendMessage(msg.chat.id, "World Covid Data is loading\n please wait ...");
+    bot.sendMessage(msg.chat.id, `Coronavirus COVID-19 Global Cases by the Center for Systems Science and Engineering (CSSE)\n 
+The confirmed Case is ${worldCovidData.data.confirmed.value}\n
+Recovered Patient is ${worldCovidData.data.recovered.value}\n and 
+${worldCovidData.data.deaths.value} deaths.`) 
+
+
+  }catch(err){
+    console.log(err.message)
+    bot.sendMessage(msg.chat.id, `There is Network Error from our Server please try later!\n
+    or Try Contact @chapimenge3`)
+  }
+  // var data = JSON.parse()
 });
 
 
-// Matches /audio
-bot.onText(/\/audio/, function onAudioText(msg) {
+// Matches /any word other than world
+bot.onText(/^((?!world).)*$/gim, function onAudioText(msg) {
   // From HTTP request
   const url = 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Example.ogg';
   const audio = request(url);
-  bot.sendAudio(msg.chat.id, audio);
+  bot.sendMessage(msg.chat.id, "The  is...");
 });
 
 
