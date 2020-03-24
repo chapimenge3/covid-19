@@ -14,8 +14,15 @@ var userSchema = new Schema({
    username :{
        type: String , 
        default : ''
+   },
+   usage : {
+       type:Number,
+       default: 0
+   },
+   notifyed:{
+       type: Boolean, 
+       default: false
    }
-   
 });
 
 var user = mongoose.model("user", userSchema);
