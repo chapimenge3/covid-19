@@ -15,7 +15,7 @@
     "BZ" : "belize" ,
     "BJ" : "benin" ,
     "BT" : "bhutan" ,
-    "BO" : "bolivia" ,
+    "BO" : "bolivia (plurinational state of)" ,
     "BA" : "bosnia and herzegovina" ,
     "BW" : "botswana" ,
     "BR" : "brazil" ,
@@ -34,11 +34,7 @@
     "CG" : "congo republic" ,
     "CD" : "dr congo" ,
     "CR" : "costa rica" ,
-<<<<<<< HEAD
-    "CI" : "cote d'ivoire" ,
-=======
     "CI" : "côte d'ivoire" ,
->>>>>>> 603020257c97b3443d8fc307dd4dbb896c0d408c
     "HR" : "croatia" ,
     "CU" : "cuba" ,
     "CY" : "cyprus" ,
